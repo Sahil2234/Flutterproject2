@@ -10,7 +10,8 @@ class LoginPage extends StatelessWidget {
             //   title: Text("Login Page"),
             // ),
             body: Container(
-                child: Column(children: [
+                child: SingleChildScrollView(
+                    child: Column(children: [
       Image.asset("assets/images/loginimg.png"),
       SizedBox(
         height: 20,
@@ -32,18 +33,20 @@ class LoginPage extends StatelessWidget {
                   decoration: InputDecoration(
                       hintText: "Enter Password", labelText: "Password")),
               SizedBox(
-                height: 20,
+                height: 40,
               ),
               ElevatedButton(
+                  style: TextButton.styleFrom(minimumSize: Size(150, 50)),
                   onPressed: () {
-                    print("Someone logged");
+                    Navigator.pushNamed(context, "/");
                   },
                   child: Text(
                     "Login",
-                    style: TextStyle(backgroundColor: Colors.blue),
+                    style:
+                        TextStyle(backgroundColor: Colors.blue, fontSize: 22),
                   ))
             ],
           ))
-    ]))));
+    ])))));
   }
 }
