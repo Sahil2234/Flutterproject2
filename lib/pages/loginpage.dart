@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  String name = "";
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
@@ -17,7 +23,7 @@ class LoginPage extends StatelessWidget {
         height: 20,
       ),
       Text(
-        "Welcome To MyApp",
+        "Welcome $name",
         style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
       ),
       Padding(
@@ -27,11 +33,16 @@ class LoginPage extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(
                     hintText: "Enter Username", labelText: "Username"),
+                onChanged: (value) {
+                  name = value;
+                  setState(() {});
+                },
               ),
               TextFormField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      hintText: "Enter Password", labelText: "Password")),
+                obscureText: true,
+                decoration: InputDecoration(
+                    hintText: "Enter Password", labelText: "Password"),
+              ),
               SizedBox(
                 height: 40,
               ),
